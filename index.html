@@ -1,4 +1,4 @@
-<!DOCTYPE <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -6,11 +6,28 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
-    <script src="script.js"></script>
 </head>
 
 <body>
-    
+    <form id="newGameForm">
+        <label>Введите количество строк</label>
+        <input required type="number" min="1" step="1" id="numberOfRows" />
+        <label>Введите количество столбцов</label>
+        <input required type="number" min="1" step="1" id="numberOfColumns" />
+        <label>Введите количество складов</label>
+        <input required type="number" min="1" step="1" id="numberOfWarehouses" />
+        <label>Введите максимальное кол-во ящиков на складе</label>
+        <input required type="number" min="1" step="1" id="maxNumberOfBoxesInWarehouse" />
+        <label>Введите максимальное число ящиков, которые игрок может переносить у себя</label>
+        <input required type="number" min="1" step="1" id="maxNumberOfBoxesInCharacter" />
+        <input type="submit" id="newGame" value="Новая игра" />
+    </form>
+    <div id="root">
+
+
+    </div>
+    <p id="result"></p>
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -2,3 +2,64 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    padding: 20px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input {
+    margin: 10px 0;
+    width: 50%;
+    outline: none;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.cell {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    margin: 1px;
+}
+
+.exit {
+    border-color: red;
+}
+
+.warehouse {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.warehouse img {
+    align-self: center;
+    height: 19px;
+    width: 19px;
+}
+
+.warehouse .number {
+    align-self: flex-end;
+}
+
+.warehouse .logo {    
+    align-self: center;
+}
