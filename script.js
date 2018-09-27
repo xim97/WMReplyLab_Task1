@@ -126,9 +126,7 @@ class Game {
         if (this.grid.cells[this.character.position].classList.contains("exit")) {
             this.createResultText(this.character.numberOfMovedBoxes);
             this.character.numberOfBoxes = 0;
-            if (this.character.numberOfMovedBoxes == this.numberOfAllBoxes) {
-                alert("Вы перенесли все ящики");
-            }
+            this.checkEndOfTheGame();
         }
     }
 
@@ -142,14 +140,18 @@ class Game {
             targetWarehouse.numberOfBoxes--;
             targetWarehouse.refreshCell(this.grid.cells);
             this.character.numberOfMovedBoxes++;
-            if (this.character.numberOfMovedBoxes == this.numberOfAllBoxes) {
-                alert("Вы перенесли все ящики");
-            }
+            this.checkEndOfTheGame();
             this.createResultText(this.character.numberOfMovedBoxes);
         } else {
             alert("Нечего переносить");
         }
 
+    }
+
+    checkEndOfTheGame() {
+        if (this.character.numberOfMovedBoxes == this.numberOfAllBoxes) {
+            alert("Вы перенесли все ящики");
+        }
     }
 
     createResultText(numberOfBoxes) {
