@@ -1,0 +1,15 @@
+{
+    // Используйте IntelliSense, чтобы узнать о возможных атрибутах.
+    // Наведите указатель мыши, чтобы просмотреть описания существующих атрибутов.
+    // Для получения дополнительной информации посетите: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "file:///D:/4%D0%BA%D1%83%D1%80%D1%81/wmreplylab/task1/WMReplyLab_Task1/index.html",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}

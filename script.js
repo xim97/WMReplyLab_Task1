@@ -1,11 +1,25 @@
+document.addEventListener("keydown", handleKeyPress);
+
 const form = document.getElementById("newGameForm");
 let game;
-form.addEventListener("submit", function (event) {
+
+document.getElementById("newGame").addEventListener("click", handleStartGame);
+
+function randomNumberInRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function createLabel(className, text) {
+    let label = document.createElement("label");
+    label.className = className;
+    label.innerText = text;
+    return label;
+}
+
+function handleStartGame(event) {
     event.preventDefault();
-    if (document.getElementById("grid")) {
-        document.getElementById("root").removeChild(document.getElementById("grid"));
-    }
     let isDataCorrect, errorMessage;
+    Grid.removeGridIfExist();
     [isDataCorrect, errorMessage] = Game.validateValues(form.elements[0].value,
         form.elements[1].value,
         form.elements[2].value);
@@ -20,10 +34,8 @@ form.addEventListener("submit", function (event) {
     } else {
         alert(errorMessage);
     }
+}
 
-});
-
-document.addEventListener("keydown", handleKeyPress);
 
 function handleKeyPress(event) {
     switch (event.keyCode) {
@@ -167,6 +179,12 @@ class Grid {
         return this.cellsOfGrid;
     }
 
+    static removeGridIfExist() {
+        if (document.getElementById("grid")) {
+            document.getElementById("root").removeChild(document.getElementById("grid"));
+        }
+    }
+
     createGrid(numberOfRows, numberOfColumns) {
         let grid = document.createElement("div");
         grid.className = "grid";
@@ -247,7 +265,7 @@ class Warehouse {
             placeOfWarehouse = randomNumberInRange(0, cells.length - 1);
         }
         this.position = placeOfWarehouse;
-        cells[placeOfWarehouse].classList.add("warehouse");        
+        cells[placeOfWarehouse].classList.add("warehouse");
         cells[placeOfWarehouse].setAttribute("draggable", true);
         cells[placeOfWarehouse].addEventListener("dragstart", handleDragStart);
         cells[placeOfWarehouse].appendChild(createLabel("number", this.numberOfBoxes));
@@ -416,14 +434,3 @@ class Character {
     }
 
 };
-
-function randomNumberInRange(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function createLabel(className, text) {
-    let label = document.createElement("label");
-    label.className = className;
-    label.innerText = text;
-    return label;
-}
